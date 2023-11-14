@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <RootNamespace>_30HillsProject.Application</RootNamespace>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\30HillsProject.DataAccess\30HillsProject.DataAccess.csproj" />
+    <ProjectReference Include="..\30HillsProject.Domain\30HillsProject.Domain.csproj" />
+  </ItemGroup>
+
+</Project>

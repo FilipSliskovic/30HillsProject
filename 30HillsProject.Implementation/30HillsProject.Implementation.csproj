@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <RootNamespace>_30HillsProject.Implementation</RootNamespace>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="BCrypt.Net-Next" Version="4.0.3" />
+    <PackageReference Include="FluentValidation" Version="11.8.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\30HillsProject.Application\30HillsProject.Application.csproj" />
+    <ProjectReference Include="..\30HillsProject.DataAccess\30HillsProject.DataAccess.csproj" />
+    <ProjectReference Include="..\30HillsProject.Domain\30HillsProject.Domain.csproj" />
+  </ItemGroup>
+
+</Project>
