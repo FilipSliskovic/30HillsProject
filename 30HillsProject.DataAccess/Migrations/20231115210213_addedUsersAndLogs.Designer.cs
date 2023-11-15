@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using _30HillsProject.DataAccess;
 
@@ -11,9 +12,11 @@ using _30HillsProject.DataAccess;
 namespace _30HillsProject.DataAccess.Migrations
 {
     [DbContext(typeof(_30HillsProjectDbContext))]
-    partial class _30HillsProjectDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231115210213_addedUsersAndLogs")]
+    partial class addedUsersAndLogs
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

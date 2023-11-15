@@ -26,7 +26,8 @@ namespace _30HillsProject.DataAccess
         public DbSet<Category> Categories { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<Price> Prices { get; set; }
-
-
+        public DbSet<UseCaseLog> UseCaseLogs { get; set; }
+        public DbSet<UserUseCase> UserUseCases { get; set; }
+        public DbSet<User> Users { get; set; }
     }
 }
