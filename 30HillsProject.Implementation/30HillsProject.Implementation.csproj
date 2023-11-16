@@ -19,8 +19,4 @@
     <ProjectReference Include="..\30HillsProject.Domain\30HillsProject.Domain.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="UseCases\Queries\" />
-  </ItemGroup>
-
 </Project>

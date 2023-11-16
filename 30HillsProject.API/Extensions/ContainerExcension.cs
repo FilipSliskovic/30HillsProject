@@ -1,8 +1,10 @@
 ﻿using _30HillsProject.API.Core;
 using _30HillsProject.Application.UseCases.Commands;
+using _30HillsProject.Application.UseCases.Queries;
 using _30HillsProject.DataAccess;
 using _30HillsProject.Domain;
 using _30HillsProject.Implementation.UseCases.Commands;
+using _30HillsProject.Implementation.UseCases.Queries;
 using _30HillsProject.Implementation.Validators;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
@@ -85,6 +87,13 @@ namespace _30HillsProject.API.Extensions
 
             #region Registration
             services.AddTransient<IRegisterUserCommand, EFRegisterUserCommand>();
+            #endregion
+
+            #region Products
+            services.AddTransient<IGetProductsQuery, EFGetProductsQuery>();
+            services.AddTransient<IGetSingleProductQuery, EFGetSingleProductQuery>();
+            services.AddTransient<ICreateProductCommand, EFCreateProductCommand>();
+            services.AddTransient<IDeleteProductCommand, EFDeleteProductCommand>();
             #endregion
 
 

@@ -23,7 +23,7 @@ namespace _30HillsProject.Implementation.UseCases.Commands
             _createCategoryValidator = createCategoryValidator;
         }
 
-        public int Id => 2;
+        public int Id => 12;
 
         public string Name => "Create category";
 
