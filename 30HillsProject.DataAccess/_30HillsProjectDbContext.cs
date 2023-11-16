@@ -5,10 +5,18 @@ namespace _30HillsProject.DataAccess
 {
     public class _30HillsProjectDbContext : DbContext
     {
+
+        public _30HillsProjectDbContext(DbContextOptions options) : base(options)
+        {
+            
+        }
+
+        public IApplicationUser ApplicationUser { get; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfigurationsFromAssembly(this.GetType().Assembly);
-            
+            modelBuilder.Entity<UserUseCase>().HasKey(x => new { x.UserId, x.UseCaseId });
             base.OnModelCreating(modelBuilder);
         }
 
@@ -19,6 +27,24 @@ namespace _30HillsProject.DataAccess
 
         public override int SaveChanges()
         {
+            foreach (var entry in this.ChangeTracker.Entries())
+            {
+                if (entry.Entity is Entity e)
+                {
+                    switch (entry.State)
+                    {
+                        case EntityState.Added:
+                            e.IsActive = true;
+                            e.CreatedAt = DateTime.UtcNow;
+                            break;
+                        case EntityState.Modified:
+                            e.UpdatedAt = DateTime.UtcNow;
+                            e.UpdatedBy = "User: " + ApplicationUser?.Identity;
+                            break;
+                    }
+                }
+            }
+
             return base.SaveChanges();
         }
 

@@ -8,10 +8,10 @@ namespace _30HillsProject.Domain
 {
     public interface IApplicationUser
     {
-        public string Identity { get; set; }
-        public int Id { get; set; }
-        public IEnumerable<int> UseCaseIds { get; set; }
-        public string Username { get; set; }
+        public string Identity { get; }
+        public int Id { get; }
+        public IEnumerable<int> UseCaseIds { get; }
+        public string Username { get; }
 
     }
 }
