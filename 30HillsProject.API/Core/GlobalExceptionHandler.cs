@@ -36,7 +36,7 @@ namespace _30HillsProject.API.Core
                     statusCode = StatusCodes.Status403Forbidden;
                 }
 
-                if (ex is EntityNotFoundException)
+                if (ex is Application.Exceptions.EntityNotFoundException)
                 {
                     statusCode = StatusCodes.Status404NotFound;
                 }

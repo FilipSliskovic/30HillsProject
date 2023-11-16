@@ -8,7 +8,7 @@ namespace _30HillsProject.DataAccess
 
         public _30HillsProjectDbContext(DbContextOptions options) : base(options)
         {
-            
+
         }
 
         public IApplicationUser ApplicationUser { get; }

@@ -15,7 +15,7 @@ namespace _30HillsProject.DataAccess.Configurations
             builder.Property(x => x.FirstName).HasMaxLength(20).IsRequired();
             builder.Property(x => x.LastName).HasMaxLength(30).IsRequired();
             builder.Property(x => x.UserName).HasMaxLength(50).IsRequired();
-            builder.Property(x => x.Password).HasMaxLength(30).IsRequired();
+            builder.Property(x => x.Password).IsRequired();
 
         }
     }

@@ -1,6 +1,9 @@
 ﻿using _30HillsProject.API.Core;
+using _30HillsProject.Application.UseCases.Commands;
 using _30HillsProject.DataAccess;
 using _30HillsProject.Domain;
+using _30HillsProject.Implementation.UseCases.Commands;
+using _30HillsProject.Implementation.Validators;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
@@ -76,7 +79,19 @@ namespace _30HillsProject.API.Extensions
 
         public static void AddUseCases(this IServiceCollection services)
         {
+            #region Categories
+            services.AddTransient<ICreateCategoryCommand, EFCreateCategoryCommand>();
+            #endregion
 
+            #region Registration
+            services.AddTransient<IRegisterUserCommand, EFRegisterUserCommand>();
+            #endregion
+
+
+            #region Validators
+            services.AddTransient<CreateCategoryValidator>();
+            services.AddTransient<RegisterUserValidator>();
+            #endregion
         }
         public static void AddHillsProjectDBContext(this IServiceCollection services, string conString)
         {
