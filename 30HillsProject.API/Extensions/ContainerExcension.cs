@@ -96,6 +96,16 @@ namespace _30HillsProject.API.Extensions
             services.AddTransient<IDeleteProductCommand, EFDeleteProductCommand>();
             #endregion
 
+            #region ProductCart
+            services.AddTransient<ICreateProductCartCommand,EFCreateProductCartCommand>();
+            services.AddTransient<IGetProductCartQuery,EFGetProductCartQuery>();
+            services.AddTransient<IDeleteProductCartCommand,EFDeleteProductCartCommand>();
+            #endregion
+
+            #region Cart
+            services.AddTransient<IGetCartsQuery, EFGetCartsQuery>();
+            services.AddTransient<IDeleteCartCommand, EFDeleteCartCommand>();
+            #endregion
 
             #region Validators
             services.AddTransient<CreateCategoryValidator>();

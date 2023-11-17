@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace _30HillsProject.Application.UseCases.DTO.Searches
 {
-    public class ProductSearch : BasePagedSearch
+    public class CartSearch : BasePagedSearch
     {
-        public IEnumerable<int>? CategoryIds { get; set; }
-        public bool? PriceASC { get; set; }
+        public int CartId { get; set; }
 
     }
 }

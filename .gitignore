@@ -362,7 +362,7 @@ MigrationBackup/
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
 
-wwwroot/images/*
+/30HillsProject.API/wwwroot/images/*
 /30HillsProject.API/wwwroot/images/44c8dad0-0148-49cf-9b7d-fe54ba73eb63.jpg
 /30HillsProject.API/wwwroot/images/e791233a-fcef-4e1e-8f6f-262e9aa5e013.jpg
 /30HillsProject.API/wwwroot/images/d1f422b6-9bb0-44ae-b2f4-500420388333.jpg

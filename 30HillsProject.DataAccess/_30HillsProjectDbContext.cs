@@ -55,5 +55,9 @@ namespace _30HillsProject.DataAccess
         public DbSet<UseCaseLog> UseCaseLogs { get; set; }
         public DbSet<UserUseCase> UserUseCases { get; set; }
         public DbSet<User> Users { get; set; }
+
+        public DbSet<Cart> Carts { get; set; }
+        public DbSet<ProductCart> ProductCarts { get; set; }
+
     }
 }

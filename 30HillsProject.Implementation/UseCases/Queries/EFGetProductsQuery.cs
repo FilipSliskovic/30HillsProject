@@ -33,6 +33,17 @@ namespace _30HillsProject.Implementation.UseCases.Queries
                 query = query.Where(x => x.CategoryId.Equals(search.CategoryIds));
             }
 
+            if (search.PriceASC == true)
+            {
+                query = query.OrderBy(x => x.Price.Value);
+            }
+
+            else if(search.PriceASC == false)
+            {
+                query = query.OrderByDescending(x => x.Price.Value);
+            }
+
+
             if (!string.IsNullOrEmpty(search.Keyword))
             {
                 query = query.Where(x => x.Name.Contains(search.Keyword) || x.Description.Contains(search.Keyword));

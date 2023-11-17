@@ -85,16 +85,17 @@ namespace _30HillsProject.API.Controllers
         private IEnumerable<string> SupportedExtension => new List<string> { ".Png", ".jpg", ".jpeg" };
 
         // PUT api/<ProductController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
+        //[HttpPut("{id}")]
+        //public void Put(int id, [FromBody] string value)
+        //{
+        //}
 
         // DELETE api/<ProductController>/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public IActionResult Delete(int id, [FromServices] IDeleteProductCommand command)
         {
-
+            useCaseHandler.HandleCommand(command, id);
+            return NoContent();
         }
     }
 }
