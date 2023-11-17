@@ -46,7 +46,7 @@ namespace _30HillsProject.API.Controllers
         // POST api/<ProductController>
         [HttpPost]
 
-        public IActionResult Post([FromBody] CreateProductAPIDTO dto, [FromServices] ICreateProductCommand command)
+        public IActionResult Post([FromForm] CreateProductAPIDTO dto, [FromServices] ICreateProductCommand command)
         {
             if (dto.Images != null)
             {

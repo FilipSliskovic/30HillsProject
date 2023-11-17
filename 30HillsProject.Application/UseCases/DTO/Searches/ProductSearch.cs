@@ -8,6 +8,6 @@ namespace _30HillsProject.Application.UseCases.DTO.Searches
 {
     public class ProductSearch : BasePagedSearch
     {
-        public IEnumerable<int> CategoryIds { get; set; }
+        public IEnumerable<int>? CategoryIds { get; set; }
     }
 }

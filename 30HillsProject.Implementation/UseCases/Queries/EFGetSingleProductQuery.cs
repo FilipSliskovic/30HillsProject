@@ -1,6 +1,9 @@
-﻿using _30HillsProject.Application.UseCases.DTO;
+﻿using _30HillsProject.Application.Exceptions;
+using _30HillsProject.Application.UseCases.DTO;
 using _30HillsProject.Application.UseCases.Queries;
 using _30HillsProject.DataAccess;
+using _30HillsProject.Domain;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,12 +24,22 @@ namespace _30HillsProject.Implementation.UseCases.Queries
 
         public SingleProductDTO Execute(int search)
         {
-            var prod = Context.Products.Where(x=>x.Id == search && x.IsActive == true).FirstOrDefault();
+            var prod = Context.Products.Where(x => x.Id == search && x.IsActive == true)
+                .Include(x => x.Price).Where(x => x.IsActive == true)
+                .Include(x => x.Category).Where(x => x.IsActive == true)
+                .Include(x=>x.Images).Where(x=>x.IsActive == true)
+                .FirstOrDefault();
+
+            if(prod == null) 
+            {
+                throw new EntityNotFoundException("Product", search);
+            }
+
 
             var response = new SingleProductDTO
             {
                 Id = prod.Id,
-                Category = prod.Category.ParentCategory.CategoryName,
+                
                 Description = prod.Description,
                 Features = prod.Features,
                 Keywords = prod.Keywords,
@@ -36,6 +49,13 @@ namespace _30HillsProject.Implementation.UseCases.Queries
                 URL = prod.Url,
                 ImageNames = prod.Images.Select(x => x.Path)
             };
+
+            if (prod.Category.ParentCategory != null)
+            {
+                response.Category = prod.Category.ParentCategory.CategoryName;
+            }
+
+
 
 
             return response;

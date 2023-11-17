@@ -28,7 +28,7 @@ namespace _30HillsProject.Implementation.UseCases.Queries
                 .Include(x => x.Category).Where(x => x.IsActive == true)
                 .Include(x => x.Price).Where(x => x.IsActive == true).AsQueryable();
 
-            if (search.CategoryIds.Any())
+            if (search.CategoryIds != null)
             {
                 query = query.Where(x => x.CategoryId.Equals(search.CategoryIds));
             }
